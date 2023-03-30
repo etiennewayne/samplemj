@@ -9,6 +9,11 @@
 <body>
     
 
+    <?php 
+        include_once('header.php');
+
+    ?>
+
     <form action="/save-form.php" method="post">
         <input type="text" name="lastname" placeholder="Last Name">
         <input type="text" name="lastname" placeholder="Last Name">
@@ -16,6 +21,10 @@
         <input type="submit" value="SAVE"/>
     </form>
 
+
+    <?php 
+        include_once('footer.php');
+    ?>
 
 </body>
 </html>

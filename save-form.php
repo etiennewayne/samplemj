@@ -2,7 +2,8 @@
 
 $postdata = file_get_contents("php://input"); //get all inputted data from form
 
-
+echo $postdata;
+return;
 
 $servername = "localhost";
 $username = "root";
