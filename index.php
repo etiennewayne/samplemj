@@ -16,7 +16,7 @@
 
     <form action="/save-form.php" method="post">
         <input type="text" name="lastname" placeholder="Last Name">
-        <input type="text" name="lastname" placeholder="Last Name">
+        <input type="text" name="lastname" placeholder="First Name">
 
         <input type="submit" value="SAVE"/>
     </form>
