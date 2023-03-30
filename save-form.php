@@ -1,19 +1,27 @@
 <?php
 
-$postdata = file_get_contents("php://input"); //get all inputted data from form
+//$postdata = file_get_contents("php://input"); //get all inputted data from form
 
-echo $postdata;
-return;
+$lname = $_POST['lastname'];
+$fname = $_POST['firstname'];
 
-$servername = "localhost";
-$username = "root";
-$password = "";
+
+require_once('connection.php');
+
 
 try {
-  $conn = new PDO("mysql:host=$servername;dbname=myDB", $username, $password);
+  $conn = new PDO("mysql:host=$servername;dbname=testmj", $username, $password);
   // set the PDO error mode to exception
   $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-  echo "Connected successfully";
+
+  $rs = $conn->prepare("INSERT INTO users (lastname, firstname) VALUES (:lname, :fname)");
+
+  $rs->execute([
+    ':lname' => $lname,
+    ':fname' => $fname,
+  ]);
+  echo "New record created successfully";
+
 } catch(PDOException $e) {
   echo "Connection failed: " . $e->getMessage();
 }
